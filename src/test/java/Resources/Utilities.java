@@ -4,6 +4,8 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import java.io.*;
@@ -33,5 +35,17 @@ public class Utilities {
         return properties.getProperty(key);
 
     }
+
+    public String getJsonPath(Response response, String key){
+
+        String r = response.asString();
+        JsonPath jp= new JsonPath(r);
+        System.out.println(jp.get(key).toString());
+        return jp.get(key).toString();
+
+
+    }
+
+
 
 }
