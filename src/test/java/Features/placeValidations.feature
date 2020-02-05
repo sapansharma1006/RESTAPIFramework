@@ -43,6 +43,6 @@ Feature: Validating place API's
     And "status" in response body is "OK"
     And "scope" in response body is "APP"
 
-#    Test comment
+#    Test comment 1
 
 
