@@ -36,6 +36,11 @@ Feature: Validating place API's
       | name | language | address |
       |testName|testLanguage|testAddress|
 
-
+  Scenario: Verify if Place is been successfully deleted using DeletePlaceAPI
+    Given delete place payload
+    When user calls the "DeletePlaceAPI" with "post" call
+    Then the API call get success message with status code 200
+    And "status" in response body is "OK"
+    And "scope" in response body is "APP"
 
 
